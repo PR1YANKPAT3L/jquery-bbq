@@ -937,7 +937,7 @@
 	// and the event.getState method is equivalent to the <jQuery.bbq.getState>
 	// method.
 	// 
-	// > $(window).bind( 'hashchange', function( event ) {
+	// > $(window).on( 'hashchange', function( event ) {
 	// >   var hash_str = event.fragment,
 	// >     param_obj = event.getState(),
 	// >     param_val = event.getState( 'param_name' ),
@@ -951,7 +951,7 @@
 	// so the fragment state isn't bound to the event object and must instead be
 	// parsed using the <jQuery.param.fragment> and <jQuery.bbq.getState> methods.
 	// 
-	// > $(window).bind( 'hashchange', function( event ) {
+	// > $(window).on( 'hashchange', function( event ) {
 	// >   var hash_str = $.param.fragment(),
 	// >     param_obj = $.bbq.getState(),
 	// >     param_val = $.bbq.getState( 'param_name' ),
@@ -1135,7 +1135,7 @@
 	// 
 	//  handler - (Function) Optional handler to be bound to the hashchange
 	//    event. This is a "shortcut" for the more verbose form:
-	//    jQuery(window).bind( 'hashchange', handler ). If handler is omitted,
+	//    jQuery(window).on( 'hashchange', handler ). If handler is omitted,
 	//    all bound window.onhashchange event handlers will be triggered. This
 	//    is a shortcut for the more verbose
 	//    jQuery(window).trigger( 'hashchange' ). These forms are described in
@@ -1149,7 +1149,7 @@
 	// $(elem).hashchange() for triggering, like jQuery does for built-in events.
 	$.fn[str_hashchange] = function (fn)
 	{
-		return fn ? this.bind(str_hashchange, fn) : this.trigger(str_hashchange);
+		return fn ? this.on(str_hashchange, fn) : this.trigger(str_hashchange);
 	};
 
 	// Property: jQuery.fn.hashchange.delay
@@ -1215,7 +1215,7 @@
 	// A more verbose usage that allows for event namespacing:
 	// 
 	// > // Bind an event handler.
-	// > jQuery(window).bind( 'hashchange', function(e) {
+	// > jQuery(window).on( 'hashchange', function(e) {
 	// >   var hash = location.hash;
 	// >   ...
 	// > });
